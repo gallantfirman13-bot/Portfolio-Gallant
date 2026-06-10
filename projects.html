@@ -21,9 +21,21 @@
         <li><a href="index.html#about">Tentang</a></li>
         <li><a href="projects.html" class="active">Projects</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Buka menu">
-        <span></span><span></span><span></span>
-      </button>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a href="cv/cv-gallant.pdf" download class="btn btn-download" style="padding:7px 16px; font-size:.82rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Download CV
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Ganti tema">
+          🌙
+        </button>
+        <button class="nav-toggle" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -257,16 +269,22 @@
   <footer>
     <div class="container footer-inner">
       <p class="footer-copy">
-        © <span class="footer-year"></span> Nama Kamu. Dibuat dengan ❤️ dan banyak kopi.
+        © <span class="footer-year"></span> Gallant Firman Mubarok. Dibuat di sela-sela menikmati seporsi mie ayam.
       </p>
       <nav class="footer-links">
-        <a href="https://github.com/usernamekamu" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/namakamu" target="_blank" rel="noopener">LinkedIn</a>
-       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gallantfirman13@gmail.com" target="_blank">
-  Email
+        <a href="https://github.com/gallantfirman13-bot" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/gallant-firman-39151b2b7/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:gallantfirman13@gmail.com">Email</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Tombol Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
 
   <script src="js/main.js"></script>
 

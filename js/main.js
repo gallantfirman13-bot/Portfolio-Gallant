@@ -1,30 +1,20 @@
 /* ============================================================
    MAIN.JS — JavaScript untuk interaktivitas portfolio
-   
-   JavaScript = bahasa pemrograman yang membuat halaman web
-   menjadi interaktif (animasi, klik, dsb.)
    ============================================================ */
 
-
-/* ---- 1. TUNGGU SAMPAI HALAMAN SELESAI DIMUAT ----
-   DOMContentLoaded = event yang terpicu saat HTML selesai dibaca browser */
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- 2. HAMBURGER MENU (mobile) ----
-     Saat tombol ☰ diklik, munculkan / sembunyikan menu navigasi */
-  const navToggle = document.querySelector('.nav-toggle');   // tombol hamburger
-  const navLinks  = document.querySelector('.nav-links');    // daftar link nav
+  /* ---- 1. HAMBURGER MENU (mobile) ---- */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
 
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function () {
-      // .classList.toggle() = tambahkan class jika belum ada, hapus jika sudah ada
       navLinks.classList.toggle('open');
-      // Ubah aria-label untuk aksesibilitas (screen reader)
       const isOpen = navLinks.classList.contains('open');
       navToggle.setAttribute('aria-label', isOpen ? 'Tutup menu' : 'Buka menu');
     });
 
-    // Tutup menu saat link diklik (di mobile setelah navigasi)
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('open');
@@ -33,47 +23,63 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  /* ---- 3. ACTIVE LINK DI NAVBAR ----
-     Tandai link nav yang sesuai dengan halaman yang sedang dibuka */
+  /* ---- 2. DARK MODE TOGGLE ----
+     Simpan pilihan tema di localStorage agar diingat saat halaman di-refresh */
+  const themeToggle = document.getElementById('themeToggle');
+  const html        = document.documentElement;  // tag <html>
+
+  // Cek apakah user sebelumnya sudah pilih dark mode
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    html.classList.add('dark');
+    if (themeToggle) themeToggle.textContent = '☀️';
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+
+      // Ganti ikon toggle
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+
+      // Simpan preferensi ke localStorage
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+
+  /* ---- 3. ACTIVE LINK DI NAVBAR ---- */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     const href = link.getAttribute('href');
-    if (href === currentPage) {
-      link.classList.add('active');
-    }
+    if (href === currentPage) link.classList.add('active');
   });
 
 
-  /* ---- 4. ANIMASI FADE-UP saat scroll ----
-     Elemen dengan class .fade-up akan muncul perlahan saat masuk viewport */
+  /* ---- 4. ANIMASI FADE-UP saat scroll ---- */
   const fadeEls = document.querySelectorAll('.fade-up');
 
-  // IntersectionObserver = API browser untuk mendeteksi elemen masuk layar
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        // Tambahkan class .visible → CSS akan men-trigger transisi
         entry.target.classList.add('visible');
-        // Hentikan observasi agar tidak berulang
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.1   // terpicu saat 10% elemen terlihat
-  });
+  }, { threshold: 0.1 });
 
   fadeEls.forEach(function (el) { observer.observe(el); });
 
 
-  /* ---- 5. ANIMASI SKILL BAR ----
-     Progress bar skill melebar dari 0% ke nilai yang kita tentukan */
+  /* ---- 5. ANIMASI SKILL BAR ---- */
   const skillBars = document.querySelectorAll('.skill-bar-fill');
 
   const barObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         const bar   = entry.target;
-        const width = bar.getAttribute('data-width');  // ambil nilai dari HTML
+        const width = bar.getAttribute('data-width');
         bar.style.width = width + '%';
         barObserver.unobserve(bar);
       }
@@ -83,20 +89,17 @@ document.addEventListener('DOMContentLoaded', function () {
   skillBars.forEach(function (bar) { barObserver.observe(bar); });
 
 
-  /* ---- 6. UPLOAD & PREVIEW SCREENSHOT (halaman project) ----
-     Klik area dashed box → buka file picker → tampilkan gambar */
+  /* ---- 6. UPLOAD & PREVIEW SCREENSHOT (halaman project) ---- */
   const screenshotArea  = document.getElementById('screenshotArea');
   const screenshotInput = document.getElementById('screenshotInput');
   const screenshotImg   = document.getElementById('screenshotImg');
   const uploadHint      = document.getElementById('uploadHint');
 
   if (screenshotArea && screenshotInput) {
-    // Klik area = klik input file (tersembunyi)
     screenshotArea.addEventListener('click', function () {
       screenshotInput.click();
     });
 
-    // Drag & drop support
     screenshotArea.addEventListener('dragover', function (e) {
       e.preventDefault();
       screenshotArea.style.borderColor = 'var(--color-accent)';
@@ -110,37 +113,71 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       screenshotArea.style.borderColor = '';
       const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith('image/')) {
-        showPreview(file);
-      }
+      if (file && file.type.startsWith('image/')) showPreview(file);
     });
 
-    // Saat file dipilih dari file picker
     screenshotInput.addEventListener('change', function () {
       const file = screenshotInput.files[0];
       if (file) showPreview(file);
     });
 
     function showPreview(file) {
-      // FileReader = API untuk membaca file sebagai URL data
       const reader = new FileReader();
       reader.onload = function (e) {
-        screenshotImg.src    = e.target.result;
+        screenshotImg.src = e.target.result;
         screenshotImg.style.display = 'block';
         if (uploadHint) uploadHint.style.display = 'none';
         screenshotArea.classList.add('has-image');
       };
-      reader.readAsDataURL(file);   // baca file sebagai base64 URL
+      reader.readAsDataURL(file);
     }
   }
 
 
-  /* ---- 7. YEAR OTOMATIS DI FOOTER ----
-     Tahun copyright tidak perlu diganti manual setiap tahun baru */
-  const yearEl = document.querySelector('.footer-year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  /* ---- 7. BACK TO TOP BUTTON ---- */
+  const backToTop = document.getElementById('backToTop');
+
+  if (backToTop) {
+    // Tampilkan tombol setelah scroll 300px ke bawah
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
+
+  /* ---- 8. ACTIVE NAV LINK saat scroll (hanya di home) ---- */
+  const sections = document.querySelectorAll('section[id]');
+
+  if (sections.length > 0) {
+    window.addEventListener('scroll', function () {
+      let current = '';
+      sections.forEach(function (section) {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  }
+
+
+  /* ---- 9. YEAR OTOMATIS DI FOOTER ---- */
+  const yearEl = document.querySelector('.footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 });
-/* ---- Akhir DOMContentLoaded ---- */
