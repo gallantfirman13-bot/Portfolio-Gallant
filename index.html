@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--
+  DOCTYPE html = memberitahu browser bahwa ini adalah HTML versi 5
+  Selalu taruh di baris pertama!
+-->
+<html lang="id">
+<!--
+  lang="id" = bahasa halaman ini adalah Indonesia
+  Ini penting untuk aksesibilitas & SEO
+-->
+
+<head>
+  <!-- HEAD berisi informasi tentang halaman, tidak terlihat di layar -->
+
+  <!-- Charset = cara browser membaca karakter, utf-8 mendukung semua bahasa -->
+  <meta charset="UTF-8">
+
+  <!-- Viewport = instruksi untuk tampilan mobile agar responsif -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Judul tab browser -->
+  <title>Portflio Gallant</title>
+
+  <!-- Deskripsi untuk mesin pencari (SEO) -->
+  <meta name="description" content="Portfolio data visualization dan dashboard oleh [Gallant Firman Mubarok], data enthusiast yang sedang belajar analisis data.">
+
+  <!-- Hubungkan ke file CSS kita -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <!-- <nav> = tag semantik untuk navigasi -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+
+      <!-- Logo / nama kamu -->
+      <a href="index.html" class="nav-logo">
+        Portfolio
+      </a>
+
+      <!-- Daftar link navigasi -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+
+      <!-- Tombol hamburger ☰ — hanya terlihat di mobile -->
+      <button class="nav-toggle" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <!-- <main> = konten utama halaman -->
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+
+          <!-- Kolom kiri: teks -->
+          <div class="hero-text">
+
+            <!-- Badge "available for work" -->
+            <div class="hero-badge">
+              <span class="dot"></span>
+              Open to opportunities
+            </div>
+
+            <!-- Nama kamu — GANTI dengan nama aslimu! -->
+            <h1 class="hero-name">
+              Halo, saya<br>
+              <span class="accent">Gallant Firman Mubarok</span>
+            </h1>
+
+            <!-- Peran / jabatan -->
+            <p class="hero-role">Administrative Support &amp; Data Processing</p>
+
+            <!-- Deskripsi singkat — GANTI dengan deskripsimu! -->
+            <p class="hero-desc">
+              Saya memiliki ketertarikan pada bidang administrasi, pengelolaan data, dan penyusunan laporan. Terbiasa menggunakan Microsoft Office serta Canva untuk kebutuhan dokumentasi, presentasi, dan penyajian informasi.
+            </p>
+
+            <!-- Tombol aksi -->
+            <div class="hero-actions">
+              <a href="projects.html" class="btn btn-primary">
+                <!-- SVG = grafik vektor untuk ikon kecil -->
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Lihat Projects
+              </a>
+              <a href="#about" class="btn btn-outline">Tentang Saya</a>
+            </div>
+
+          </div><!-- /hero-text -->
+
+          <!-- Kolom kanan: kartu statistik dekoratif -->
+          <div class="hero-visual">
+
+            <div class="stat-card fade-up">
+              <div class="label">Projects Selesai</div>
+              <div class="value">2</div>
+              <div class="desc">Data dashboard &amp; analisis</div>
+              <!-- Bar chart mini dekoratif -->
+              <div class="mini-chart">
+                <div class="bar active" style="height:60%"></div>
+                <div class="bar" style="height:40%"></div>
+                <div class="bar active" style="height:80%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar active" style="height:90%"></div>
+                <div class="bar" style="height:65%"></div>
+              </div>
+            </div>
+
+            <div class="stat-card fade-up">
+              <div class="label">Tools Dipelajari</div>
+              <div class="value">5</div>
+              <div class="desc">Microsoft Word, Excel, Powerpoint, Canva, dan Looker Studio.</div>
+            </div>
+
+          </div><!-- /hero-visual -->
+
+        </div><!-- /hero-inner -->
+      </div>
+    </section>
+
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" style="background: white; border-top: 1px solid var(--color-border);">
+      <div class="container">
+
+        <span class="section-label">Kemampuan</span>
+        <h2 class="section-title">Tools &amp; Skill</h2>
+        <p class="section-subtitle">
+          Skill yang sedang saya pelajari dan kembangkan dalam perjalanan menjadi Administrative Support.
+        </p>
+
+        <!-- Grid skill — bisa ditambah / dikurangi sesuai kebutuhanmu -->
+        <div class="skills-grid">
+
+          <!-- Setiap .skill-card adalah satu kotak skill -->
+           <div class="skill-card fade-up">
+            <div class="skill-icon">🗄️</div>
+            <div class="skill-name">Microsoft Word</div>
+            <div class="skill-level">Intermediate</div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-up">
+            <div class="skill-icon">📊</div>
+            <div class="skill-name">Microsoft Excel</div>
+            <div class="skill-level">Intermediate</div>
+            <!-- data-width = persentase progress bar, diambil JS -->
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+
+          
+          <div class="skill-card fade-up">
+            <div class="skill-icon">🖥️</div>
+            <div class="skill-name">Microsoft Powerpoint</div>
+            <div class="skill-level">Intermediate</div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="100"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-up">
+            <div class="skill-icon">🎨</div>
+            <div class="skill-name">Canva</div>
+            <div class="skill-level">Intermediate</div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-up">
+            <div class="skill-icon">🔢</div>
+            <div class="skill-name">Google Data Studio</div>
+            <div class="skill-level">Learning</div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+
+          
+        </div><!-- /skills-grid -->
+
+      </div>
+    </section>
+
+
+    <!-- ==================== PROJECTS PREVIEW ==================== -->
+    <section id="projects">
+      <div class="container">
+
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Projects Terbaru</h2>
+        <p class="section-subtitle">
+          Kumpulan proyek analisis dan visualisasi data yang sedang saya kerjakan.
+        </p>
+
+        <div class="projects-grid">
+
+          <!-- Card Project 1 — GANTI dengan project aslimu -->
+          <article class="project-card fade-up">
+            <!-- Thumbnail dekoratif dengan emoji & bar chart -->
+            <div class="project-thumb">
+              📊
+              <div class="chart-deco">
+                <span style="height:40px"></span>
+                <span style="height:60px"></span>
+                <span style="height:35px"></span>
+                <span style="height:75px"></span>
+                <span style="height:50px"></span>
+                <span style="height:90px"></span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-tag">Excel • Data Viz</div>
+              <h3 class="project-title">Dashboard Gudang PT Gallant Maju Jaya</h3>
+              <p class="project-desc">
+                Analisis pergerakan barang di PT Gallant Maju Jaya dan menganalisis produk terlaris dan slow moving product.
+              </p>
+              <div class="project-footer">
+                <div class="project-tools">
+                  <span class="tag">Excel</span>
+                  <span class="tag">Pivot Table</span>
+                  <span class="tag">Google Data</span>
+                </div>
+                <a href="projects.html" class="btn btn-ghost" style="padding:6px 14px; font-size:.8rem">
+                  Detail →
+                </a>
+              </div>
+            </div>
+          </article>
+
+          
+
+                 </div><!-- /projects-grid -->
+
+        <!-- Tombol lihat semua project -->
+        <div class="see-all-wrap fade-up">
+          <a href="projects.html" class="btn btn-primary">
+            Lihat Semua Projects
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" style="background: white; border-top: 1px solid var(--color-border);">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <!-- Kolom kiri: foto / avatar -->
+          <div class="about-photo-wrap fade-up">
+            <div class="about-photo">
+              <img src="images/foto-saya.jpg" alt="Foto Gallant Firman Mubarok">
+                              <!--
+                Untuk memasukkan foto asli, ganti emoji di atas dengan:
+                <img src="images/foto-saya.jpg" alt="Foto Gallant Firman Mubarok">
+                Simpan foto di folder images/
+              -->
+            </div>
+          </div>
+
+          <!-- Kolom kanan: teks tentang -->
+          <div class="about-content fade-up">
+            <span class="section-label">Tentang Saya</span>
+            <h2 class="section-title">Suka Mencoba Hal Baru</h2>
+
+            <!-- GANTI dengan cerita personalmu! -->
+            <p style="color: var(--color-muted); line-height: 1.8; margin-bottom: 16px;">
+              Halo! Saya <strong>Gallant Firman Mubarok</strong>, Saya merupakan lulusan S1 Manajemen yang memiliki ketertarikan pada bidang
+              administrasi, pengelolaan data, dan penyusunan laporan. Selama masa perkuliahan, saya mengembangkan kemampuan dalam menggunakan Microsoft Office,
+              mengolah data, serta menyusun berbagai dokumen dan laporan.
+    
+            </p>
+            <p style="color: var(--color-muted); line-height: 1.8; margin-bottom: 24px;">
+             Sebagai bagian dari proses belajar, saya juga mempelajari visualisasi data menggunakan Looker Studio. Portofolio ini berisi beberapa project latihan yang
+             dibuat menggunakan dataset dummy untuk melatih kemampuan dalam menyajikan informasi secara lebih jelas dan terstruktur.
+                      </p>
+
+            <!-- Checklist hal-hal tentang kamu -->
+            <ul class="about-list">
+              <li>Administrasi dan Pengelolaan Dokumen</li>
+              <li>Pengolahan Data &amp; Penyusunan Laporan</li>
+              <li>Microsoft Office (Word, Excel, Powerpoint)</li>
+              <li>Canva &amp; Visualisasi Data Dasar</li>
+            </ul>
+
+          </div>
+
+        </div><!-- /about-grid -->
+
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        © <span class="footer-year"></span> Gallant Firman Mubarok. Dibuat di sela - sela menikmati seporsi mie ayam.
+      </p>
+      <nav class="footer-links">
+        <a href="https://github.com/gallantfirman13-bot" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/gallant-firman-39151b2b7/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:gallantfirman13@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <!-- Hubungkan file JavaScript — taruh di paling bawah agar HTML
+       selesai dimuat dulu sebelum JS dijalankan -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

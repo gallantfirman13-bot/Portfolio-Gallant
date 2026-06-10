@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Data Dashboard Portfolio</title>
+  <meta name="description" content="Detail project data visualization dan dashboard analisis oleh Nama Kamu.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">data<span>.</span>porto</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#about">Tentang</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <div class="page-hero">
+      <div class="container">
+
+        <!-- Link kembali ke home -->
+        <a href="index.html" class="back-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Kembali ke Home
+        </a>
+
+        <div class="project-detail-wrap">
+          <!-- Tag kategori project -->
+          <div class="project-meta">
+            <span class="tag">Excel</span>
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Business Analysis</span>
+          </div>
+
+          <!-- Judul project — GANTI dengan judul projectmu! -->
+          <h1 class="page-title">Dashboard Pergerakan Barang di PT Gallant Maju Jaya</h1>
+
+          <!-- Deskripsi singkat -->
+          <p class="page-desc">
+            Pengolahan data menggunakan Microsoft Excel dan visualisasi interaktif dengan Looker Studio
+            untuk menyajikan insight bisnis dan tren penjualan secara lebih mudah dipahami.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ==================== DETAIL PROJECT ==================== -->
+    <!-- 3 kartu: Tujuan, Dataset, dan Tools -->
+    <div class="container">
+
+      <div class="detail-grid">
+
+        <!-- Kartu Tujuan -->
+        <div class="detail-card fade-up">
+          <div class="detail-icon">🎯</div>
+          <h3>Tujuan Project</h3>
+          <!-- GANTI dengan tujuan projectmu! -->
+          <p>
+            Membuat dashboard monitoring gudang untuk memvisualisasikan aktivitas barang masuk,
+            barang keluar, return, dan kondisi stok. Tujuannya adalah membantu proses
+            pemantauan persediaan serta mendukung pengambilan keputusan terkait pengelolaan stok barang.
+          </p>
+        </div>
+
+        <!-- Kartu Dataset -->
+        <div class="detail-card fade-up">
+          <div class="detail-icon">🗂️</div>
+          <h3>Dataset</h3>
+          <!-- GANTI dengan info dataset projectmu! -->
+          <p>
+            Dataset yang digunakan merupakan data simulasi (dummy data) yang dibuat
+            dengan bantuan Claude AI. Dataset berisi 1.000 transaksi gudang dalam format CSV
+            yang mencakup data persediaan, pergerakan barang, dan return.
+          </p>
+        </div>
+
+        <!-- Kartu Tools -->
+        <div class="detail-card fade-up">
+          <div class="detail-icon">🛠️</div>
+          <h3>Tools yang Digunakan</h3>
+          <!-- GANTI sesuai tools yang kamu pakai! -->
+          <p>
+            Microsoft Excel untuk pengolahan dan perapihan data, Pivot Table untuk membuat ringkasan data,
+            serta Looker Studio untuk membangun visualisasi data yang interaktif.
+          </p>
+        </div>
+
+      </div><!-- /detail-grid -->
+
+
+      <!-- ==================== SCREENSHOT / VISUALISASI ==================== -->
+      <section class="viz-section">
+        <h2>Dashboard Preview</h2>
+        <p style="color: var(--color-muted); margin-bottom: 20px; font-size: .92rem;">
+          Klik area di bawah untuk mengunggah screenshot dashboard kamu,
+          atau drag &amp; drop file gambar langsung ke sini.
+        </p>
+
+        <!--
+          Area upload screenshot.
+          - id="screenshotArea" → dipakai JS untuk menangani klik
+          - id="screenshotInput" → input file tersembunyi
+          - id="screenshotImg" → tempat gambar ditampilkan
+        -->
+        <div class="screenshot-area" id="screenshotArea" role="button" tabindex="0"
+             aria-label="Klik untuk mengunggah screenshot dashboard">
+
+          <!-- Konten hint (tersembunyi setelah gambar diupload) -->
+          <div id="uploadHint">
+            <div class="upload-icon">📁</div>
+            <p>
+              <strong>Klik atau drag &amp; drop</strong> untuk mengunggah<br>
+              screenshot dashboard kamu di sini.<br>
+              <small style="color: var(--color-muted);">Format: PNG, JPG, WEBP · Maks 10MB</small>
+            </p>
+          </div>
+
+          <!-- Gambar akan ditampilkan di sini oleh JS -->
+          <img id="screenshotImg" src="" alt="Screenshot dashboard" style="display:none; max-width:100%;">
+
+          <!-- Input file tersembunyi -->
+          <input type="file" id="screenshotInput" accept="image/*">
+
+        </div>
+
+        <!--
+          ALTERNATIF: Jika kamu punya link embed dari Tableau Public / Google Looker Studio,
+          hapus kotak upload di atas dan uncomment (hapus tanda kurung) bagian ini:
+
+        <div style="position:relative; padding-top:56.25%; width:100%; border-radius:14px; overflow:hidden;">
+          <iframe
+            src="URL_EMBED_TABLEAU_KAMU_DI_SINI"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+        -->
+
+      </section>
+
+
+      <!-- ==================== INSIGHT / TEMUAN ==================== -->
+      <section class="insights-section">
+        <h2>Key Insights</h2>
+        <p style="color: var(--color-muted); margin-bottom: 24px; font-size: .92rem;">
+          Temuan penting dari analisis data ini:
+        </p>
+
+        <!-- GANTI dengan insight asli dari projectmu! -->
+        <div class="insight-list">
+
+          <div class="insight-item fade-up">
+            <div class="insight-num">1</div>
+            <p>
+              <strong>Arus Barang Masuk Lebih Tinggi dari Barang Keluar</strong> Persediaan masih cukup aman namun perlu dilakukan pemantauan agar tidak terjadi penumpukan stok pada slow moving product.
+            </p>
+          </div>
+
+          <div class="insight-item fade-up">
+            <div class="insight-num">2</div>
+            <p>
+              <strong>Transaksi Return Sangat Rendah</strong>, total return sejumlah 2.563 unit dari total 51.361 pergerakan barang.
+            </p>
+          </div>
+
+          <div class="insight-item fade-up">
+            <div class="insight-num">3</div>
+            <p>
+              <strong>Produk Terlaris Didominasi Kategori Kebutuhan Rumah Tangga</strong>
+                         </p>
+          </div>
+
+          <div class="insight-item fade-up">
+            <div class="insight-num">4</div>
+            <p>
+              <strong>Terdapat Beberapa Produk yang Membutuhkan Restock</strong> 
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ==================== LINK GITHUB & SUMBER ==================== -->
+      <section class="links-section">
+        <h2>Sumber Data</h2>
+
+        <div class="project-links">
+                  <!-- Link ke dataset — GANTI dengan link dataset aslimu -->
+          <a href="https://docs.google.com/spreadsheets/d/1YP-XuomMbPYV_YAM4oz_BmnwNq7CCcfO/edit?usp=drive_link&ouid=111005627426143529940&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-card">
+            <span class="link-icon">🗃️</span>
+            Dataset (Drive)
+          </a>
+
+         
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================== NAVIGASI ANTAR PROJECT ==================== -->
+      <!-- Section ini untuk memudahkan perpindahan antar project -->
+      <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 32px 0 64px;
+        border-top: 1px solid var(--color-border);
+        margin-top: 16px;
+        flex-wrap: wrap;
+        gap: 16px;
+      ">
+        <a href="#" class="btn btn-ghost">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Project Sebelumnya
+        </a>
+
+        <a href="index.html" class="btn btn-outline">Semua Projects</a>
+
+        <a href="#" class="btn btn-ghost">
+          Project Berikutnya
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+    </div><!-- /container -->
+
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        © <span class="footer-year"></span> Nama Kamu. Dibuat dengan ❤️ dan banyak kopi.
+      </p>
+      <nav class="footer-links">
+        <a href="https://github.com/usernamekamu" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/namakamu" target="_blank" rel="noopener">LinkedIn</a>
+       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gallantfirman13@gmail.com" target="_blank">
+  Email
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
