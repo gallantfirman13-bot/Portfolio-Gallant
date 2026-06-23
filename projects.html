@@ -48,6 +48,12 @@
           </svg>
           Kembali ke Home
         </a>
+        <a href="projects.html" id="backToAllProjects" class="back-link" style="display:none; margin-left:16px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Lihat Semua Project
+        </a>
         <div class="project-detail-wrap">
           <div class="project-meta">
             <span class="tag">Excel</span>
@@ -68,7 +74,7 @@
     <div class="container">
 
       <!-- ==================== PROJECT 1: DASHBOARD DATA ==================== -->
-      <section class="project-section fade-up">
+      <section class="project-section fade-up" id="project-1">
 
         <!-- Label section -->
         <div class="project-section-header">
@@ -174,6 +180,83 @@
 
       <hr class="section-divider">
 
+      <!-- ==================== PROJECT 2: DASHBOARD BARU ==================== -->
+<section class="project-section fade-up" id="project-2">
+
+  <div class="project-section-header">
+    <div>
+      <span class="section-label">Data Dashboard</span>
+      <h2 class="section-title" style="margin-bottom:8px;">Dashboard Inventaris KAI (Dummy Project)</h2>
+      <p style="color:var(--color-muted); font-size:.95rem;">Excel & Google Data</p>
+    </div>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-card fade-up">
+      <div class="detail-icon">🎯</div>
+      <h3>Tujuan Project</h3>
+      <p>Membuat dashboard inventaris untuk memantau stok kebutuhan konsumen seperti bantal dan selimut, mencatat barang yang hilang ataupun rusak, serta untuk mempermudah monitoring .</p>
+    </div>
+    <div class="detail-card fade-up">
+      <div class="detail-icon">🗂️</div>
+      <h3>Dataset</h3>
+      <p>Dataset yang digunakan dalam project ini merupakan data fiktif yang dibuat untuk tujuan pembelajaran dan pengembangan dashboard. Data ini tidak berasal dari PT Kereta Api Indonesia.</p>
+    </div>
+    <div class="detail-card fade-up">
+      <div class="detail-icon">🛠️</div>
+      <h3>Tools</h3>
+      <p>Excel untuk pengolahan data serta Google Data sebagai visualisasi data.</p>
+    </div>
+  </div>
+
+  <div class="viz-section">
+    <div class="viz-header">
+      <h3>Dashboard Preview</h3>
+      <a href="https://datastudio.google.com/reporting/8fe1b69a-d71e-4c26-b5d6-483c1fbb6dfb" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem; padding:7px 16px;">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+        Lihat Full Dashboard
+      </a>
+    </div>
+    <div class="dashboard-preview">
+      <img src="images/dashboard-2.jpg"
+           alt="Screenshot Dashboard Baru"
+           onerror="this.parentElement.classList.add('no-image')">
+      <div class="no-image-hint">
+        <span>📊</span>
+        <p>Simpan screenshot dengan nama<br><code>dashboard-2.jpg</code> di folder <code>images/</code></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="insights-section">
+    <h3>Key Insights</h3>
+    <div class="insight-list">
+      <div class="insight-item fade-up">
+        <div class="insight-num">1</div>
+        <p>Mayoritas kehilangan terjadi pada rute Semarang - Jakarta sehingga diperlukan pengawasan yang lebih ketat pada rute ini.</p>
+      </div>
+      <div class="insight-item fade-up">
+        <div class="insight-num">2</div>
+        <p>Sebagian besar selisih inventaris berasal dari bantal dan selimut sehingga diperlukan pencatatan dan pengecekan secara berkala.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="links-section" style="padding-top:0;">
+    <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:16px;">Sumber Data</h3>
+    <div class="project-links">
+      <a href="https://docs.google.com/spreadsheets/d/1Ud_0TKPoykbjgFh2o2NQ9I8Kx0WVtXiw/edit?usp=sharing&ouid=111005627426143529940&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">🗃️</span>
+        Dataset (Google Drive)
+      </a>
+    </div>
+  </div>
+
+</section>
+
+      <hr class="section-divider">
 
       <!-- ==================== PROJECT 2: DESAIN CANVA ==================== -->
       <!--
@@ -181,7 +264,7 @@
         Nama file gambar: flyer-1.jpg, flyer-2.jpg, ... sampai flyer-10.jpg
         Simpan semua di folder images/
       -->
-      <section class="project-section fade-up">
+      <section class="project-section fade-up" id="project-3">
 
         <div class="project-section-header">
           <div>
@@ -318,6 +401,51 @@
   </button>
 
   <script src="js/main.js"></script>
+
+  <!-- ==================== SCRIPT FILTER PER-PROJECT ====================
+       Script ini bikin tiap project bisa dibuka sendiri-sendiri.
+       Cara kerja: baca #project-1 / #project-2 / #project-3 di URL,
+       lalu sembunyikan section project lain yang id-nya tidak cocok.
+       Kalau tidak ada hash (buka projects.html biasa), semua project tetap tampil.
+  -->
+  <script>
+    function filterProjectByHash() {
+      const hash = window.location.hash.replace('#', '');
+      const sections = document.querySelectorAll('.project-section');
+      const dividers = document.querySelectorAll('.section-divider');
+      const backBtn = document.getElementById('backToAllProjects');
+
+      if (!hash) {
+        // Tidak ada hash -> tampilkan semua project seperti biasa
+        sections.forEach(function (s) { s.style.display = ''; });
+        dividers.forEach(function (d) { d.style.display = ''; });
+        if (backBtn) backBtn.style.display = 'none';
+        return;
+      }
+
+      // Ada hash -> tampilkan hanya section yang id-nya cocok
+      let found = false;
+      sections.forEach(function (s) {
+        if (s.id === hash) {
+          s.style.display = '';
+          found = true;
+        } else {
+          s.style.display = 'none';
+        }
+      });
+
+      // Garis pemisah disembunyikan saat mode filter (cuma 1 project tampil)
+      dividers.forEach(function (d) { d.style.display = 'none'; });
+
+      // Tombol "Lihat Semua Project" muncul kalau memang ketemu project-nya
+      if (backBtn) backBtn.style.display = found ? 'inline-flex' : 'none';
+    }
+
+    // Jalankan saat halaman pertama dimuat
+    document.addEventListener('DOMContentLoaded', filterProjectByHash);
+    // Jalankan ulang kalau hash berubah tanpa reload halaman
+    window.addEventListener('hashchange', filterProjectByHash);
+  </script>
 
 </body>
 </html>
