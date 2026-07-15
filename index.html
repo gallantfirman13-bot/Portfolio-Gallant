@@ -51,7 +51,15 @@
 
       <!-- Tombol dark mode + hamburger -->
       <div style="display:flex; align-items:center; gap:10px;">
-        <!-- Tombol Download CV -->
+        <!-- Tombol Lihat CV (preview, buka tab baru — TANPA atribut download) -->
+        <a href="cv/cv-gallant.pdf" target="_blank" rel="noopener" class="btn btn-outline" style="padding:7px 16px; font-size:.82rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          Lihat CV
+        </a>
+        <!-- Tombol Download CV (unduh langsung) -->
         <a href="cv/cv-gallant.pdf" download class="btn btn-download" style="padding:7px 16px; font-size:.82rem;">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
@@ -165,24 +173,21 @@
         <!-- Grid skill — bisa ditambah / dikurangi sesuai kebutuhanmu -->
         <div class="skills-grid">
 
-          <!-- Setiap .skill-card adalah satu kotak skill -->
+          <!-- Setiap .skill-card adalah satu kotak skill.
+               CATATAN: sengaja TIDAK pakai progress bar persentase (mis. "80%") lagi —
+               angka self-rated begitu gampang dipertanyakan ("kenapa cuma 80%?") dan
+               terkesan seolah presisi padahal subjektif. Label kualitatif (Advanced /
+               Intermediate / dst) tetap dipakai karena tidak mengklaim ukuran pasti. -->
            <div class="skill-card fade-up">
             <div class="skill-icon">🗄️</div>
             <div class="skill-name">Microsoft Word</div>
             <div class="skill-level">Advanced</div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" data-width="90"></div>
-            </div>
           </div>
 
           <div class="skill-card fade-up">
             <div class="skill-icon">📊</div>
             <div class="skill-name">Microsoft Excel</div>
             <div class="skill-level">Intermediate</div>
-            <!-- data-width = persentase progress bar, diambil JS -->
-            <div class="skill-bar">
-              <div class="skill-bar-fill" data-width="80"></div>
-            </div>
           </div>
 
           
@@ -190,27 +195,18 @@
             <div class="skill-icon">🖥️</div>
             <div class="skill-name">Microsoft PowerPoint</div>
             <div class="skill-level">Familiar</div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" data-width="70"></div>
-            </div>
           </div>
 
           <div class="skill-card fade-up">
             <div class="skill-icon">🎨</div>
             <div class="skill-name">Canva</div>
             <div class="skill-level">Intermediate</div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" data-width="80"></div>
-            </div>
           </div>
 
           <div class="skill-card fade-up">
             <div class="skill-icon">🔢</div>
             <div class="skill-name">Looker Studio</div>
             <div class="skill-level">Learning</div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" data-width="70"></div>
-            </div>
           </div>
 
           
@@ -301,7 +297,9 @@
       <a href="projects.html#project-3" class="btn btn-ghost" style="padding:6px 14px; font-size:.8rem">
         Detail →
       </a>
-          
+    </div>
+  </div>
+</article>
 
                  </div><!-- /projects-grid -->
 
@@ -389,6 +387,28 @@
   <!-- Hubungkan file JavaScript — taruh di paling bawah agar HTML
        selesai dimuat dulu sebelum JS dijalankan -->
   <!-- Tombol Back to Top -->
+  <!-- ==================== FLOATING KONTAK CEPAT ====================
+       Sengaja cuma 2 ikon kecil + garis tipis (bukan tombol besar/berteks)
+       biar tetap ringan & tidak berkesan padat. Ditaruh di kiri (bukan kanan)
+       supaya tidak numpuk dengan tombol "Back to Top" yang di kanan-bawah.
+       Otomatis disembunyikan di layar sempit (lihat CSS .contact-float),
+       karena di situ kontak sudah cukup terwakili lewat footer. -->
+  <div class="contact-float">
+    <span class="contact-float-line"></span>
+    <a href="mailto:gallantfirman13@gmail.com" class="icon-btn" aria-label="Kirim Email" title="Kirim Email">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 6h18v12H3z"/>
+        <path d="M3 7l9 6 9-6"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/gallant-firman-39151b2b7/" target="_blank" rel="noopener" class="icon-btn" aria-label="Buka LinkedIn" title="LinkedIn">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56z"/>
+      </svg>
+    </a>
+    <span class="contact-float-line"></span>
+  </div>
+
   <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
       <path d="M18 15l-6-6-6 6"/>

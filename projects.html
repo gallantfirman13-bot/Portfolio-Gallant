@@ -22,6 +22,14 @@
         <li><a href="projects.html" class="active">Projects</a></li>
       </ul>
       <div style="display:flex; align-items:center; gap:10px;">
+        <!-- Tombol Lihat CV (preview, buka tab baru — TANPA atribut download) -->
+        <a href="cv/cv-gallant.pdf" target="_blank" rel="noopener" class="btn btn-outline" style="padding:7px 16px; font-size:.82rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          Lihat CV
+        </a>
         <a href="cv/cv-gallant.pdf" download class="btn btn-download" style="padding:7px 16px; font-size:.82rem;">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
@@ -73,17 +81,29 @@
 
     <div class="container">
 
-      <!-- ==================== PROJECT 1: DASHBOARD DATA ==================== -->
-      <section class="project-section fade-up" id="project-1">
+      <!-- ==================== PROJECT 1: DASHBOARD DATA ====================
+           Pakai <details>/<summary> bawaan HTML supaya jadi accordion:
+           klik judulnya untuk buka/tutup, tidak perlu JS tambahan.
+           Atribut "open" bikin project ini terbuka duluan saat halaman dimuat. -->
+      <details class="project-section fade-up" id="project-1" open>
 
-        <!-- Label section -->
-        <div class="project-section-header">
-          <div>
+        <!-- Klik bagian ini untuk buka/tutup project -->
+        <summary class="project-section-header">
+          <span class="project-number">01</span>
+          <div class="project-heading-group">
             <span class="section-label">Data Dashboard</span>
             <h2 class="section-title" style="margin-bottom:8px;">Dashboard Pergerakan Barang di PT Gallant Maju Jaya</h2>
             <p style="color:var(--color-muted); font-size:.95rem;">PT Gallant Maju Jaya · Excel & Looker Studio</p>
           </div>
-        </div>
+          <span class="project-chevron">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </span>
+        </summary>
+
+        <!-- Isi project: hanya tampil kalau accordion-nya dibuka -->
+        <div class="project-body-inner">
 
         <!-- 3 kartu info -->
         <div class="detail-grid">
@@ -176,20 +196,30 @@
           </div>
         </div>
 
-      </section>
+        </div><!-- /project-body-inner -->
+
+      </details><!-- /project-1 -->
 
       <hr class="section-divider">
 
       <!-- ==================== PROJECT 2: DASHBOARD BARU ==================== -->
-<section class="project-section fade-up" id="project-2">
+<details class="project-section fade-up" id="project-2">
 
-  <div class="project-section-header">
-    <div>
+  <summary class="project-section-header">
+    <span class="project-number">02</span>
+    <div class="project-heading-group">
       <span class="section-label">Data Dashboard</span>
       <h2 class="section-title" style="margin-bottom:8px;">Dashboard Inventaris KAI (Dummy Project)</h2>
       <p style="color:var(--color-muted); font-size:.95rem;">Excel & Google Data</p>
     </div>
-  </div>
+    <span class="project-chevron">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </span>
+  </summary>
+
+  <div class="project-body-inner">
 
   <div class="detail-grid">
     <div class="detail-card fade-up">
@@ -254,18 +284,28 @@
     </div>
   </div>
 
-</section>
+  </div><!-- /project-body-inner -->
+
+</details><!-- /project-2 -->
 
       <hr class="section-divider">
-      <section class="project-section fade-up" id="project-3">
+      <details class="project-section fade-up" id="project-3">
 
-  <div class="project-section-header">
-    <div>
+  <summary class="project-section-header">
+    <span class="project-number">03</span>
+    <div class="project-heading-group">
       <span class="section-label">Data Dashboard</span>
       <h2 class="section-title" style="margin-bottom:8px;">Dashboard Receiving Gudang PT Gallant Food Indonesia</h2>
       <p style="color:var(--color-muted); font-size:.95rem;">Excel & Google Data</p>
     </div>
-  </div>
+    <span class="project-chevron">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </span>
+  </summary>
+
+  <div class="project-body-inner">
 
   <div class="detail-grid">
     <div class="detail-card fade-up">
@@ -330,29 +370,46 @@
       </a>
     </div>
   </div>
+
+  </div><!-- /project-body-inner -->
+
+</details><!-- /project-3 : FIX — sebelumnya tag penutup section ini hilang,
+              jadi Project Canva di bawah ini ikut "kebungkus" di dalam Project 3.
+              Itu salah satu penyebab tampilannya kelihatan nyambung. -->
+
       <hr class="section-divider">
 
-      <!-- ==================== PROJECT 2: DESAIN CANVA ==================== -->
-      <!--
-        Section ini untuk poster/flyer Canva kamu.
-        Nama file gambar: flyer-1.jpg, flyer-2.jpg, ... sampai flyer-10.jpg
-        Simpan semua di folder images/
-      -->
-      <section class="project-section fade-up" id="project-3">
+      <!-- ==================== PROJECT 4: DESAIN CANVA ====================
+           FIX: id diganti dari "project-3" (duplikat, bentrok sama Dashboard 3
+           di atas) menjadi "project-4" supaya unik. -->
+      <details class="project-section fade-up" id="project-4">
 
-        <div class="project-section-header">
-          <div>
+        <summary class="project-section-header">
+          <span class="project-number">04</span>
+          <div class="project-heading-group">
             <span class="section-label">Desain Visual</span>
             <h2 class="section-title" style="margin-bottom:8px;">Desain & Komunikasi Visual</h2>
             <p style="color:var(--color-muted); font-size:.95rem;">Poster & Flyer · Canva</p>
           </div>
-          <!--
-            GANTI href di bawah dengan link folder Google Drive berisi semua flyer kamu
-          -->
+          <span class="project-chevron">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </span>
+        </summary>
+
+        <div class="project-body-inner">
+
+        <!--
+          Tombol "Lihat Semua di Drive" dipindah ke sini (di dalam isi/body),
+          bukan di summary — supaya klik tombolnya tidak ikut menutup/membuka accordion.
+          GANTI href di bawah dengan link folder Google Drive berisi semua flyer kamu.
+        -->
+        <div style="display:flex; justify-content:flex-end; margin-bottom:16px;">
           <a href="https://drive.google.com/drive/folders/1EfgLjjZtSSTrj3xVxYP_bIH62UFfXLy9?usp=drive_link"
              target="_blank" rel="noopener"
              class="btn btn-outline"
-             style="font-size:.82rem; padding:7px 16px; white-space:nowrap; align-self:flex-start; margin-top:8px;">
+             style="font-size:.82rem; padding:7px 16px; white-space:nowrap;">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
             </svg>
@@ -447,7 +504,9 @@
 
                 </div><!-- /flyer-grid -->
 
-      </section>
+        </div><!-- /project-body-inner -->
+
+      </details><!-- /project-4 -->
 
     </div><!-- /container -->
 
@@ -468,6 +527,23 @@
     </div>
   </footer>
 
+  <!-- ==================== FLOATING KONTAK CEPAT ==================== -->
+  <div class="contact-float">
+    <span class="contact-float-line"></span>
+    <a href="mailto:gallantfirman13@gmail.com" class="icon-btn" aria-label="Kirim Email" title="Kirim Email">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 6h18v12H3z"/>
+        <path d="M3 7l9 6 9-6"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/gallant-firman-39151b2b7/" target="_blank" rel="noopener" class="icon-btn" aria-label="Buka LinkedIn" title="LinkedIn">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56z"/>
+      </svg>
+    </a>
+    <span class="contact-float-line"></span>
+  </div>
+
   <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
       <path d="M18 15l-6-6-6 6"/>
@@ -476,49 +552,45 @@
 
   <script src="js/main.js"></script>
 
-  <!-- ==================== SCRIPT FILTER PER-PROJECT ====================
-       Script ini bikin tiap project bisa dibuka sendiri-sendiri.
-       Cara kerja: baca #project-1 / #project-2 / #project-3 di URL,
-       lalu sembunyikan section project lain yang id-nya tidak cocok.
-       Kalau tidak ada hash (buka projects.html biasa), semua project tetap tampil.
+  <!-- ==================== SCRIPT ACCORDION PROJECT ====================
+       Tiap project sekarang pakai <details>/<summary> bawaan HTML, jadi
+       buka/tutup per-project SUDAH otomatis jalan tanpa JS sama sekali
+       (klik judul project = toggle buka/tutup).
+
+       Script kecil di bawah ini cuma menangani 1 hal tambahan:
+       kalau orang datang dari Home lewat link "projects.html#project-2",
+       maka project 2 otomatis KEBUKA (dan yang lain ketutup), lalu
+       halaman scroll otomatis ke situ.
   -->
   <script>
-    function filterProjectByHash() {
+    function openProjectByHash() {
       const hash = window.location.hash.replace('#', '');
-      const sections = document.querySelectorAll('.project-section');
-      const dividers = document.querySelectorAll('.section-divider');
+      const allProjects = document.querySelectorAll('.project-section');
       const backBtn = document.getElementById('backToAllProjects');
 
-      if (!hash) {
-        // Tidak ada hash -> tampilkan semua project seperti biasa
-        sections.forEach(function (s) { s.style.display = ''; });
-        dividers.forEach(function (d) { d.style.display = ''; });
-        if (backBtn) backBtn.style.display = 'none';
-        return;
-      }
+      if (!hash) return; // tidak ada hash -> biarkan kondisi default (project-1 terbuka)
 
-      // Ada hash -> tampilkan hanya section yang id-nya cocok
-      let found = false;
-      sections.forEach(function (s) {
-        if (s.id === hash) {
-          s.style.display = '';
-          found = true;
+      let target = null;
+      allProjects.forEach(function (details) {
+        if (details.id === hash) {
+          details.open = true;       // buka project yang dituju
+          target = details;
         } else {
-          s.style.display = 'none';
+          details.open = false;      // tutup project lainnya
         }
       });
 
-      // Garis pemisah disembunyikan saat mode filter (cuma 1 project tampil)
-      dividers.forEach(function (d) { d.style.display = 'none'; });
-
-      // Tombol "Lihat Semua Project" muncul kalau memang ketemu project-nya
-      if (backBtn) backBtn.style.display = found ? 'inline-flex' : 'none';
+      if (target) {
+        if (backBtn) backBtn.style.display = 'inline-flex';
+        // Kasih sedikit delay biar animasi/scroll browser tidak bentrok
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
     }
 
-    // Jalankan saat halaman pertama dimuat
-    document.addEventListener('DOMContentLoaded', filterProjectByHash);
-    // Jalankan ulang kalau hash berubah tanpa reload halaman
-    window.addEventListener('hashchange', filterProjectByHash);
+    document.addEventListener('DOMContentLoaded', openProjectByHash);
+    window.addEventListener('hashchange', openProjectByHash);
   </script>
 
 </body>

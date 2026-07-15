@@ -72,22 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
   fadeEls.forEach(function (el) { observer.observe(el); });
 
 
-  /* ---- 5. ANIMASI SKILL BAR ---- */
-  const skillBars = document.querySelectorAll('.skill-bar-fill');
-
-  const barObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        const bar   = entry.target;
-        const width = bar.getAttribute('data-width');
-        bar.style.width = width + '%';
-        barObserver.unobserve(bar);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  skillBars.forEach(function (bar) { barObserver.observe(bar); });
-
+  /* ---- 5. (skill bar persentase sudah dihapus — sekarang cukup pakai
+             label kualitatif di .skill-level, tanpa progress bar) ---- */
 
   /* ---- 6. UPLOAD & PREVIEW SCREENSHOT (halaman project) ---- */
   const screenshotArea  = document.getElementById('screenshotArea');
