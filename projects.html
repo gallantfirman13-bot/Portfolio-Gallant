@@ -81,10 +81,11 @@
 
     <div class="container">
 
-      <!-- ==================== PROJECT 1: DASHBOARD DATA ====================
-           Pakai <details>/<summary> bawaan HTML supaya jadi accordion:
-           klik judulnya untuk buka/tutup, tidak perlu JS tambahan.
-           Atribut "open" bikin project ini terbuka duluan saat halaman dimuat. -->
+      <!-- ==================== SLOT #1: DASHBOARD RECEIVING GUDANG ====================
+           Sengaja ditaruh PALING DEPAN + default terbuka atas permintaan user,
+           karena project ini dianggap paling menarik untuk langsung ditunjukkan ke HR.
+           (Sebelumnya di slot #3 — isinya cuma ditukar dengan slot #3, id & nomor
+           tetap mengikuti posisi supaya urutan tampilan konsisten dengan labelnya.) -->
       <details class="project-section fade-up" id="project-1" open>
 
         <!-- Klik bagian ini untuk buka/tutup project -->
@@ -92,8 +93,8 @@
           <span class="project-number">01</span>
           <div class="project-heading-group">
             <span class="section-label">Data Dashboard</span>
-            <h2 class="section-title" style="margin-bottom:8px;">Dashboard Pergerakan Barang di PT Gallant Maju Jaya</h2>
-            <p style="color:var(--color-muted); font-size:.95rem;">PT Gallant Maju Jaya · Excel & Looker Studio</p>
+            <h2 class="section-title" style="margin-bottom:8px;">Dashboard Receiving Gudang PT Gallant Food Indonesia</h2>
+            <p style="color:var(--color-muted); font-size:.95rem;">Excel & Google Data</p>
           </div>
           <span class="project-chevron">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -105,91 +106,64 @@
         <!-- Isi project: hanya tampil kalau accordion-nya dibuka -->
         <div class="project-body-inner">
 
-        <!-- 3 kartu info -->
         <div class="detail-grid">
           <div class="detail-card fade-up">
             <div class="detail-icon">🎯</div>
             <h3>Tujuan Project</h3>
-            <p>Membuat dashboard monitoring gudang untuk memvisualisasikan aktivitas barang masuk,
-            barang keluar, return, dan kondisi stok guna mendukung pengambilan keputusan pengelolaan persediaan.</p>
+            <p>Membuat dashboard Receiving gudang untuk membantu perusahaan menganalisis selisih tiap barang yang diterima secara lebih detail.</p>
           </div>
           <div class="detail-card fade-up">
             <div class="detail-icon">🗂️</div>
             <h3>Dataset</h3>
-            <p>Data simulasi (dummy data) buatan Claude AI. Berisi 1.000 transaksi gudang dalam format CSV
-            mencakup data persediaan, pergerakan barang, dan return.</p>
+            <p>Dataset ini dibuat menggunakan rumus Rand-Between di Microsoft Excel.</p>
           </div>
           <div class="detail-card fade-up">
             <div class="detail-icon">🛠️</div>
             <h3>Tools</h3>
-            <p>Microsoft Excel untuk pengolahan data & Pivot Table, serta Looker Studio untuk
-            visualisasi data interaktif.</p>
+            <p>Microsoft Excel untuk pengolahan data serta Looker Studio untuk visualisasi data.</p>
           </div>
         </div>
 
-        <!-- Preview dashboard -->
         <div class="viz-section">
           <div class="viz-header">
             <h3>Dashboard Preview</h3>
-            <!--
-              GANTI href di bawah ini dengan link Looker Studio / Google Drive kamu!
-              Ini tombol "Lihat Full Size"
-            -->
-            <a href="https://datastudio.google.com/u/0/reporting/53ca4837-5069-4c0c-a720-23d42c0f3bdd/page/jvZ0F" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem; padding:7px 16px;">
+            <a href="https://datastudio.google.com/reporting/04877ddd-7d4c-44ec-88f6-e468b1d69c61" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem; padding:7px 16px;">
               <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
               </svg>
               Lihat Full Dashboard
             </a>
           </div>
-
-          <!--
-            CARA PAKAI:
-            Simpan screenshot dashboard kamu di folder images/ dengan nama: dashboard-1.jpg
-            Kalau belum punya screenshot, gambar placeholder akan muncul otomatis.
-          -->
           <div class="dashboard-preview">
-            <img
-              src="images/dashboard-1.jpg"
-              alt="Screenshot Dashboard Pergerakan Barang PT Gallant Maju Jaya"
-              onerror="this.parentElement.classList.add('no-image')"
-            >
+            <img src="images/dashboard-3.jpg"
+                 alt="Screenshot Dashboard Receiving Gudang PT Gallant Food Indonesia"
+                 onerror="this.parentElement.classList.add('no-image')">
             <div class="no-image-hint">
               <span>📊</span>
-              <p>Simpan screenshot dashboard kamu dengan nama<br><code>dashboard-1.jpg</code> di folder <code>images/</code></p>
+              <p>Simpan screenshot dengan nama<br><code>dashboard-3.jpg</code> di folder <code>images/</code></p>
             </div>
           </div>
         </div>
 
-        <!-- Key Insights -->
         <div class="insights-section">
           <h3>Key Insights</h3>
           <div class="insight-list">
             <div class="insight-item fade-up">
               <div class="insight-num">1</div>
-              <p><strong>Arus barang masuk lebih tinggi dari barang keluar. Persediaan masih cukup aman akan tetapi perlu pemantauan agar tidak terjadi penumpukan stok pada slow moving product.</p>
+              <p>Selama bulan Januari 2026, PT Gallant Food Indonesia memesan sejumlah 33.236 melalui Purchase Order (PO), 
+                dengan jumlah barang yang berhasil diterimanya sejumlah 33.065 unit barang. Sebagian besar pesanan berhasil dikirim oleh supplier meski masih terdapat 171 selisih barang yang diterima.</p>
             </div>
             <div class="insight-item fade-up">
               <div class="insight-num">2</div>
-              <p><strong>Transaksi return sangat rendah. Total return sejumlah 2.563 unit dari total 51.361 pergerakan barang, menunjukkan kualitas pengiriman yang baik.</p>
-            </div>
-            <div class="insight-item fade-up">
-              <div class="insight-num">3</div>
-              <p><strong>Produk terlaris didominasi kategori kebutuhan rumah tangga. Kategori ini konsisten menjadi top seller setiap bulannya.</p>
-            </div>
-            <div class="insight-item fade-up">
-              <div class="insight-num">4</div>
-              <p><strong>Terdapat beberapa produk yang memerlukan restock.</p>
+              <p>Pada bulan Januari, barang dengan volume penerimaan tertinggi adalah permen cincin, tercatat ada 1976 dus yang telah berhasil diterima di gudang.</p>
             </div>
           </div>
         </div>
 
-        <!-- Link sumber -->
         <div class="links-section" style="padding-top:0;">
           <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:16px;">Sumber Data</h3>
           <div class="project-links">
-            <a href="https://docs.google.com/spreadsheets/d/1YP-XuomMbPYV_YAM4oz_BmnwNq7CCcfO/edit?usp=drive_link&ouid=111005627426143529940&rtpof=true&sd=true"
-               target="_blank" rel="noopener" class="link-card">
+            <a href="https://docs.google.com/spreadsheets/d/10p7k4Sxw_ndcmQPtYns71fTsmbj92Clk/edit?usp=sharing&ouid=111005627426143529940&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-card">
               <span class="link-icon">🗃️</span>
               Dataset (Google Drive)
             </a>
@@ -198,7 +172,7 @@
 
         </div><!-- /project-body-inner -->
 
-      </details><!-- /project-1 -->
+      </details><!-- /slot-1 -->
 
       <hr class="section-divider">
 
@@ -251,7 +225,7 @@
     </div>
     <div class="dashboard-preview">
       <img src="images/dashboard-2.jpg"
-           alt="Screenshot Dashboard Baru"
+           alt="Screenshot Dashboard Inventaris KAI"
            onerror="this.parentElement.classList.add('no-image')">
       <div class="no-image-hint">
         <span>📊</span>
@@ -289,93 +263,108 @@
 </details><!-- /project-2 -->
 
       <hr class="section-divider">
+
+      <!-- ==================== SLOT #3: DASHBOARD PT GALLANT MAJU JAYA ====================
+           Sebelumnya ini slot #1 — sekarang dipindah ke posisi terakhir sesuai
+           permintaan user (ditukar dengan Dashboard Receiving Gudang di slot #1). -->
       <details class="project-section fade-up" id="project-3">
 
-  <summary class="project-section-header">
-    <span class="project-number">03</span>
-    <div class="project-heading-group">
-      <span class="section-label">Data Dashboard</span>
-      <h2 class="section-title" style="margin-bottom:8px;">Dashboard Receiving Gudang PT Gallant Food Indonesia</h2>
-      <p style="color:var(--color-muted); font-size:.95rem;">Excel & Google Data</p>
-    </div>
-    <span class="project-chevron">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M6 9l6 6 6-6"/>
-      </svg>
-    </span>
-  </summary>
+        <summary class="project-section-header">
+          <span class="project-number">03</span>
+          <div class="project-heading-group">
+            <span class="section-label">Data Dashboard</span>
+            <h2 class="section-title" style="margin-bottom:8px;">Dashboard Pergerakan Barang di PT Gallant Maju Jaya</h2>
+            <p style="color:var(--color-muted); font-size:.95rem;">PT Gallant Maju Jaya · Excel & Looker Studio</p>
+          </div>
+          <span class="project-chevron">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </span>
+        </summary>
 
-  <div class="project-body-inner">
+        <div class="project-body-inner">
 
-  <div class="detail-grid">
-    <div class="detail-card fade-up">
-      <div class="detail-icon">🎯</div>
-      <h3>Tujuan Project</h3>
-      <p>Membuat dashboard Receiving gudang untuk membantu perusahaan menganalisis selisih tiap barang yang diterima secara lebih detail.</p>
-    </div>
-    <div class="detail-card fade-up">
-      <div class="detail-icon">🗂️</div>
-      <h3>Dataset</h3>
-      <p>Dataset ini dibuat menggunakan rumus Rand-Between di Microsoft Excel.</p>
-    </div>
-    <div class="detail-card fade-up">
-      <div class="detail-icon">🛠️</div>
-      <h3>Tools</h3>
-      <p>Microsoft Excel untuk pengolahan data serta Looker Studio untuk visualisasi data.</p>
-    </div>
-  </div>
+        <div class="detail-grid">
+          <div class="detail-card fade-up">
+            <div class="detail-icon">🎯</div>
+            <h3>Tujuan Project</h3>
+            <p>Membuat dashboard monitoring gudang untuk memvisualisasikan aktivitas barang masuk,
+            barang keluar, return, dan kondisi stok guna mendukung pengambilan keputusan pengelolaan persediaan.</p>
+          </div>
+          <div class="detail-card fade-up">
+            <div class="detail-icon">🗂️</div>
+            <h3>Dataset</h3>
+            <p>Data simulasi (dummy data) buatan Claude AI. Berisi 1.000 transaksi gudang dalam format CSV
+            mencakup data persediaan, pergerakan barang, dan return.</p>
+          </div>
+          <div class="detail-card fade-up">
+            <div class="detail-icon">🛠️</div>
+            <h3>Tools</h3>
+            <p>Microsoft Excel untuk pengolahan data & Pivot Table, serta Looker Studio untuk
+            visualisasi data interaktif.</p>
+          </div>
+        </div>
 
-  <div class="viz-section">
-    <div class="viz-header">
-      <h3>Dashboard Preview</h3>
-      <a href="https://datastudio.google.com/reporting/04877ddd-7d4c-44ec-88f6-e468b1d69c61" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem; padding:7px 16px;">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-        </svg>
-        Lihat Full Dashboard
-      </a>
-    </div>
-    <div class="dashboard-preview">
-      <img src="images/dashboard-3.jpg"
-           alt="Screenshot Dashboard Baru"
-           onerror="this.parentElement.classList.add('no-image')">
-      <div class="no-image-hint">
-        <span>📊</span>
-        <p>Simpan screenshot dengan nama<br><code>dashboard-2.jpg</code> di folder <code>images/</code></p>
-      </div>
-    </div>
-  </div>
+        <div class="viz-section">
+          <div class="viz-header">
+            <h3>Dashboard Preview</h3>
+            <a href="https://datastudio.google.com/u/0/reporting/53ca4837-5069-4c0c-a720-23d42c0f3bdd/page/jvZ0F" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem; padding:7px 16px;">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+              Lihat Full Dashboard
+            </a>
+          </div>
+          <div class="dashboard-preview">
+            <img
+              src="images/dashboard-1.jpg"
+              alt="Screenshot Dashboard Pergerakan Barang PT Gallant Maju Jaya"
+              onerror="this.parentElement.classList.add('no-image')"
+            >
+            <div class="no-image-hint">
+              <span>📊</span>
+              <p>Simpan screenshot dashboard kamu dengan nama<br><code>dashboard-1.jpg</code> di folder <code>images/</code></p>
+            </div>
+          </div>
+        </div>
 
-  <div class="insights-section">
-    <h3>Key Insights</h3>
-    <div class="insight-list">
-      <div class="insight-item fade-up">
-        <div class="insight-num">1</div>
-        <p>Selama bulan Januari 2026, PT Gallant Food Indonesia memesan sejumlah 33.236 melalui Purchase Order (PO), 
-          dengan jumlah barang yang berhasil diterimanya sejumlah 33.065 unit barang. Sebagian besar pesanan berhasil dikirim oleh supplier meski masih terdapat 171 selisih barang yang diterima.</p>
-      </div>
-      <div class="insight-item fade-up">
-        <div class="insight-num">2</div>
-        <p>Pada bulan Januari, barang dengan volume penerimaan tertinggi adalah permen cincin, tercatat ada 1976 dus yang telah berhasil diterima di gudang.</p>
-      </div>
-    </div>
-  </div>
+        <div class="insights-section">
+          <h3>Key Insights</h3>
+          <div class="insight-list">
+            <div class="insight-item fade-up">
+              <div class="insight-num">1</div>
+              <p><strong>Arus barang masuk lebih tinggi dari barang keluar. Persediaan masih cukup aman akan tetapi perlu pemantauan agar tidak terjadi penumpukan stok pada slow moving product.</p>
+            </div>
+            <div class="insight-item fade-up">
+              <div class="insight-num">2</div>
+              <p><strong>Transaksi return sangat rendah. Total return sejumlah 2.563 unit dari total 51.361 pergerakan barang, menunjukkan kualitas pengiriman yang baik.</p>
+            </div>
+            <div class="insight-item fade-up">
+              <div class="insight-num">3</div>
+              <p><strong>Produk terlaris didominasi kategori kebutuhan rumah tangga. Kategori ini konsisten menjadi top seller setiap bulannya.</p>
+            </div>
+            <div class="insight-item fade-up">
+              <div class="insight-num">4</div>
+              <p><strong>Terdapat beberapa produk yang memerlukan restock.</p>
+            </div>
+          </div>
+        </div>
 
-  <div class="links-section" style="padding-top:0;">
-    <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:16px;">Sumber Data</h3>
-    <div class="project-links">
-      <a href="https://docs.google.com/spreadsheets/d/10p7k4Sxw_ndcmQPtYns71fTsmbj92Clk/edit?usp=sharing&ouid=111005627426143529940&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">🗃️</span>
-        Dataset (Google Drive)
-      </a>
-    </div>
-  </div>
+        <div class="links-section" style="padding-top:0;">
+          <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:16px;">Sumber Data</h3>
+          <div class="project-links">
+            <a href="https://docs.google.com/spreadsheets/d/1YP-XuomMbPYV_YAM4oz_BmnwNq7CCcfO/edit?usp=drive_link&ouid=111005627426143529940&rtpof=true&sd=true"
+               target="_blank" rel="noopener" class="link-card">
+              <span class="link-icon">🗃️</span>
+              Dataset (Google Drive)
+            </a>
+          </div>
+        </div>
 
-  </div><!-- /project-body-inner -->
+        </div><!-- /project-body-inner -->
 
-</details><!-- /project-3 : FIX — sebelumnya tag penutup section ini hilang,
-              jadi Project Canva di bawah ini ikut "kebungkus" di dalam Project 3.
-              Itu salah satu penyebab tampilannya kelihatan nyambung. -->
+      </details><!-- /slot-3 -->
 
       <hr class="section-divider">
 
